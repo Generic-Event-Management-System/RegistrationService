@@ -33,5 +33,11 @@ namespace RegistrationService.Controllers.Api
         {
             return Ok(await _registrationsService.GetRegistraion(id));
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateRegistration(int id, RegistrationDto registrationDto)
+        {
+            return Ok(await _registrationsService.UpdateRegistration(id, registrationDto));
+        }
     }
 }

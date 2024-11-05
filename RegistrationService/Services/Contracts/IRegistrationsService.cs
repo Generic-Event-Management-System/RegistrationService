@@ -8,5 +8,6 @@ namespace RegistrationService.Services.Contracts
         Task<Registration> CreateRegistration(RegistrationDto registrationDto);
         Task<IEnumerable<Registration>> GetRegistrations();
         Task<Registration> GetRegistraion(int registrationId);
+        Task<Registration> UpdateRegistration(int registrationId, RegistrationDto registrationDto);
     }
 }

@@ -37,6 +37,17 @@ namespace RegistrationService.Services
             return await GetRegistrationOrThrowNotFoundException(registrationId);
         }
 
+        public async Task<Registration> UpdateRegistration(int registrationId, RegistrationDto registrationDto)
+        {
+            var registration = await GetRegistrationOrThrowNotFoundException(registrationId);
+
+            _mapper.Map(registrationDto, registration);
+
+            await _dbContext.SaveChangesAsync();
+
+            return registration;
+        }
+
         private async Task<Registration> GetRegistrationOrThrowNotFoundException(int registrationId)
         {
             var registration = await _dbContext.Registrations.FirstOrDefaultAsync(r => r.Id == registrationId);
