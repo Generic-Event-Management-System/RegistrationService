@@ -39,5 +39,12 @@ namespace RegistrationService.Controllers.Api
         {
             return Ok(await _registrationsService.UpdateRegistration(id, registrationDto));
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteRegistration(int id)
+        {
+            await _registrationsService.DeleteRegistration(id);
+            return NoContent();
+        }
     }
 }

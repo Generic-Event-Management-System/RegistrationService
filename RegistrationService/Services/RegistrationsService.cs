@@ -48,6 +48,15 @@ namespace RegistrationService.Services
             return registration;
         }
 
+        public async Task DeleteRegistration(int registrationId)
+        {
+            var registration = await GetRegistrationOrThrowNotFoundException(registrationId);
+
+            _dbContext.Registrations.Remove(registration);
+
+            await _dbContext.SaveChangesAsync();
+        }
+
         private async Task<Registration> GetRegistrationOrThrowNotFoundException(int registrationId)
         {
             var registration = await _dbContext.Registrations.FirstOrDefaultAsync(r => r.Id == registrationId);
