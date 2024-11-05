@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RegistrationService.Models;
+using RegistrationService.Models.Entities;
 
 namespace RegistrationService.Persistence
 {

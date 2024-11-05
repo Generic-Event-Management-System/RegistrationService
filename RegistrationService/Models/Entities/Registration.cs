@@ -1,4 +1,4 @@
-﻿namespace RegistrationService.Models
+﻿namespace RegistrationService.Models.Entities
 {
     public class Registration
     {
