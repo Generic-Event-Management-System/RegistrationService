@@ -1,4 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using RegistrationService.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<RegistrationDbContext>(options => 
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 
