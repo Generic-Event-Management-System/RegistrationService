@@ -27,5 +27,11 @@ namespace RegistrationService.Controllers.Api
         {
             return Ok(await _registrationsService.GetRegistrations());
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetRegisration(int id)
+        {
+            return Ok(await _registrationsService.GetRegistraion(id));
+        }
     }
 }

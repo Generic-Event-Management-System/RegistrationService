@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using RegistrationService.ExceptionHandling;
 using RegistrationService.Models.Dto;
 using RegistrationService.Models.Entities;
 using RegistrationService.Persistence;
@@ -29,6 +30,21 @@ namespace RegistrationService.Services
         public async Task<IEnumerable<Registration>> GetRegistrations()
         {
             return await _dbContext.Registrations.ToListAsync();
+        }
+
+        public async Task<Registration> GetRegistraion(int registrationId)
+        {
+            return await GetRegistrationOrThrowNotFoundException(registrationId);
+        }
+
+        private async Task<Registration> GetRegistrationOrThrowNotFoundException(int registrationId)
+        {
+            var registration = await _dbContext.Registrations.FirstOrDefaultAsync(r => r.Id == registrationId);
+
+            if (registration == null)
+                throw new NotFoundException("Registration not found.");
+
+            return registration;
         }
     }
 }
