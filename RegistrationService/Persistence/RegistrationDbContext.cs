@@ -5,7 +5,7 @@ namespace RegistrationService.Persistence
 {
     public class RegistrationDbContext : DbContext
     {
-        DbSet<Registration> Registrations { get; set; }
+        public DbSet<Registration> Registrations { get; set; }
 
         public RegistrationDbContext(DbContextOptions<RegistrationDbContext> options) : base(options) { }
 
