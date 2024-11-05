@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using RegistrationService.Persistence;
+using RegistrationService.Services;
+using RegistrationService.Services.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,7 @@ builder.Services.AddDbContext<RegistrationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
+builder.Services.AddScoped<IRegistrationsService, RegistrationsService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
