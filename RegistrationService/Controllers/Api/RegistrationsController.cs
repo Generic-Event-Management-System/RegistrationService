@@ -21,5 +21,11 @@ namespace RegistrationService.Controllers.Api
         {
             return Ok(await _registrationsService.CreateRegistration(registrationDto));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetRegistrations()
+        {
+            return Ok(await _registrationsService.GetRegistrations());
+        }
     }
 }

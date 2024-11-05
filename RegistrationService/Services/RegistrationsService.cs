@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using RegistrationService.Models.Dto;
 using RegistrationService.Models.Entities;
 using RegistrationService.Persistence;
@@ -23,6 +24,11 @@ namespace RegistrationService.Services
             _dbContext.Registrations.Add(registration);
             await _dbContext.SaveChangesAsync();
             return registration;
+        }
+
+        public async Task<IEnumerable<Registration>> GetRegistrations()
+        {
+            return await _dbContext.Registrations.ToListAsync();
         }
     }
 }
