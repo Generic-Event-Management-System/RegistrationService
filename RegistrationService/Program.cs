@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using RegistrationService.ExceptionHandling;
 using RegistrationService.Persistence;
 using RegistrationService.Services;
 using RegistrationService.Services.Contracts;
+using SharedUtilities.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 

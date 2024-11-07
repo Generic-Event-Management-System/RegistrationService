@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using RegistrationService.ExceptionHandling;
 using RegistrationService.Models.Dto;
 using RegistrationService.Models.Entities;
 using RegistrationService.Persistence;
 using RegistrationService.Services.Contracts;
+using SharedUtilities.CustomExceptions;
 
 namespace RegistrationService.Services
 {
